@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { darkTheme, lightTheme } from './style/darkTheme';
+import { ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import routes from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <BrowserRouter basename="/">
+        <Routes>
+          {routes.map((route, index) => {
+            return <Route
+              key={index}
+              exact={route.exact}
+              path={route.path}
+              element={route.component}
+            />;
+          })}
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

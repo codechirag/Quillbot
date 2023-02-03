@@ -1,0 +1,114 @@
+@import '../../style/variables.scss';
+
+.search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 57px;
+
+    .themeMode {
+        margin-right: 15px;
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .search-box {
+        display: flex;
+        max-width: 567px;
+        width: 100%;
+        
+        .MuiFormControl-root {
+            transition: 0.3s;
+            width: 50%;
+        }
+
+        .MuiInputBase-root {
+            background-color: $BACKGROUND1;
+            border: none;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+
+        input {
+            padding: 0;
+            height: 55px;
+            width: 100px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .MuiInputAdornment-root {
+            opacity: 0;
+            transition: 0.3s;
+            transition-delay: 0.3s;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 16px;
+            z-index: 1;
+            cursor: pointer;
+            outline: 0;
+        }
+
+        .searchField {
+            opacity: 0;
+            padding: 0 6px;
+            border-radius: 8px;
+        }
+
+        .placeholder {
+            position: absolute;
+            z-index: 1;
+            left: 54px;
+            top: 15px;
+            color: #7B828E;
+            opacity: 0;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        &.active {
+            .MuiFormControl-root {
+                width: 100%;
+            }
+
+            input {
+                max-width: 567px;
+                width: 100%;
+                opacity: 1;
+            }
+
+            .MuiInputAdornment-root {
+                opacity: 1;
+            }
+
+            .searchField {
+                opacity: 1;
+            }
+
+            .placeholder {
+                opacity: 1;
+                transition: 0.3s;
+                transition-delay: 0.5s;
+            }
+        }
+    }
+
+    .page-control {
+        min-width: 65px;
+        margin-left: 10px;
+        line-height: 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .search-wrapper {
+        padding-top: 30px;
+        padding-left: 35px;
+    }
+}

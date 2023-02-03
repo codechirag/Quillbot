@@ -1,0 +1,174 @@
+@import '../../style/variables.scss';
+
+.moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 46px 0;
+    gap: 37px 26px;
+
+    .movie-card {
+        flex: 0 1 178px;
+        box-sizing: border-box;
+        border-radius: 11px;
+        cursor: pointer;
+
+        .movie-banner {
+            img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                border-radius: 6px;
+            }
+        }
+
+        p {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 150px;
+            overflow: hidden;
+        }
+
+        .icon-controls {
+            display: flex;
+            gap: 8px;
+
+            svg {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.details-wrapper.MuiBox-root {
+    height: 0;
+    transition: 0.3s;
+
+    .movie-details.MuiBox-root {
+        margin-top: 46px;
+        transition: 0.3s;
+        transition-delay: 1s;
+        display: flex;
+        align-items: center;
+
+        .movie-bg {
+            overflow: hidden;
+            border-radius: 11px;
+            height: 0;
+            background-color: $GREY;
+            transition: 0.3s;
+            transition-delay: 0.5s;
+
+            .details-card {
+                display: flex;
+                align-items: center;
+                opacity: 0;
+                transition: 0.3s;
+                .movie-poster {
+                    line-height: 0;
+
+                    img {
+                        object-fit: cover;
+                        opacity: 0;
+                        transition: 0.2s;
+                        transition-delay: 0.7s;
+                    }
+                }
+
+                .movie-info {
+                    transition-duration: 0.3s;
+                }
+            }
+        }
+
+        .movie-info {
+            padding: 0 42px;
+
+            .imdb-rating {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 7px;
+                margin-bottom: 17px;
+
+                .rating-bar {
+                    margin-right: 12px;
+                }
+            }
+
+            .info {
+                font-weight: 600;
+                line-height: 31px;
+            }
+
+            .description {
+                margin-top: 24px;
+                font-size: 14px;
+            }
+
+            .button-wrap {
+                margin-top: 21px;
+
+                button {
+                    &:first-child {
+                        margin-right: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.active {
+        height: 389px;
+
+        .movie-details.MuiBox-root {
+            height: 100%;
+
+            .movie-bg {
+                height: 389px;
+                width: 100%;
+            }
+
+            .details-card {
+                opacity: 1;
+                .movie-poster {
+                    img {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .moviesList {
+        gap: 26px 18px;
+        margin: 30px 0;
+    }
+}
+
+@media (max-width:768px) {
+    .moviesList {
+        .movie-card {
+            flex: 0 1 160px;
+
+            p {
+                max-width: 130px;
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .moviesList {
+        justify-content: space-between;
+
+        .movie-card {
+            flex: 0 1 47%;
+
+            p {
+                max-width: 110px;
+            }
+        }
+    }
+}

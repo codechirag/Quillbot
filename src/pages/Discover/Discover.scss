@@ -1,0 +1,20 @@
+@import url('../../style/variables.scss');
+
+.wrapper.MuiBox-root {
+    display: flex;
+    max-width: 1366px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.content.MuiBox-root {
+    padding: 0 48px;
+}
+
+
+@media (max-width: 1024px) {
+    .content.MuiBox-root {
+        padding: 0 30px;
+        overflow: hidden;
+    }
+}
