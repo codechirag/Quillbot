@@ -4,7 +4,8 @@
     min-width: 275px;
     padding-top: 42px;
     height: 100vh;
-
+    position: fixed;
+    overflow-y: auto;
     .user-profile {
         text-align: center;
         padding-bottom: 20px;

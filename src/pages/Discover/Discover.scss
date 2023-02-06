@@ -1,14 +1,26 @@
 @import url('../../style/variables.scss');
+.page-scroll{
 
+    &.overflow{
+        div{
+            &:first-child{
+                overflow: hidden !important;
+            }
+        }
+    }
+}
 .wrapper.MuiBox-root {
     display: flex;
     max-width: 1366px;
     margin: 0 auto;
     box-sizing: content-box;
+
 }
 
 .content.MuiBox-root {
     padding: 0 48px;
+    width: calc(100% - 275px);
+    margin-left: 275px;
 }
 
 
@@ -16,5 +28,7 @@
     .content.MuiBox-root {
         padding: 0 30px;
         overflow: hidden;
+        margin-left: 0;
+        width: 100%;
     }
 }

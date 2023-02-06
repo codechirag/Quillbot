@@ -16,7 +16,7 @@
         display: flex;
         max-width: 567px;
         width: 100%;
-        
+
         .MuiFormControl-root {
             transition: 0.3s;
             width: 50%;
@@ -110,5 +110,11 @@
     .search-wrapper {
         padding-top: 30px;
         padding-left: 35px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .search-wrapper .search-box {
+        max-width: 190px;
     }
 }

@@ -17,7 +17,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const [active,setActive] = useState(false);
   const menu1List = [
     {
@@ -81,11 +81,11 @@ const Sidebar = () => {
   ]
   return (
     <>
-      <Typography className='responsive-menu' onClick={()=>setActive(true)} ><MenuRoundedIcon /></Typography>
+      <Typography className='responsive-menu' onClick={()=>{setActive(true); props.passOverflow(true);}} style={{cursor: 'pointer'}} ><MenuRoundedIcon /></Typography>
       {active && <Box className='overlay'></Box>}
       <Box className={`sidebar ${active ? 'active' : ''}`} sx={{ bgcolor: 'background.paper' }}>
         <Box className='user-profile' sx={{ borderBottom: '1px solid', borderColor: 'grey.50' }}>
-        <Typography className='close-menu' onClick={()=>setActive(false)} ><CloseRoundedIcon className='close-button'/></Typography>
+        <Typography className='close-menu' onClick={()=>{setActive(false); props.passOverflow(false);}} ><CloseRoundedIcon className='close-button' style={{cursor: 'pointer'}}/></Typography>
           <Avatar alt='User Image' sx={{ width: '91px', height: '91px', margin: '0 auto 11px' }} src={user} />
           <Typography variant='h1' >Eric Hoffman</Typography>
         </Box>

@@ -25,6 +25,7 @@ const SearchBox = (props) => {
           <FilledInput
             className='searchField'
             type='text'
+            value={search}
             onChange={(e)=>setSearch(e.target.value)}
             startAdornment={
               <InputAdornment position="start">
@@ -35,8 +36,8 @@ const SearchBox = (props) => {
             }
             endAdornment={
               <InputAdornment position="end">
-                <IconButton>
-                  <CloseOutlinedIcon />
+                <IconButton onClick={()=>setSearch('')}>
+                  <CloseOutlinedIcon  />
                 </IconButton>
               </InputAdornment>
             }
